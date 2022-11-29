@@ -1,0 +1,43 @@
+<section>
+    <article id="MenuLateral" class="container-fluid">
+        
+        <h5 id="tittle">TIMBRE AUTOMATICO</h5>
+        <img src="https://emojipedia-us.s3.amazonaws.com/source/noto-emoji-animations/344/bellhop-bell_1f6ce-fe0f.gif" alt="timbre" id="timbreImg" title="Timbre">
+        <hr><hr><hr>
+
+        <ul class="Options">
+            <li routerLink="Formulario/Registro" routerLinkActive="Ac">
+              >   Programar Timbre
+            </li>  
+            <li>
+              > Tiempos establecidos
+            </li>        
+            <li>
+              >  &nbsp;&nbsp; &nbsp;   Historial 
+            </li>
+            <li>
+              > &nbsp;&nbsp;&nbsp;   Registro
+            </li>
+            
+          </ul>
+        </article>
+        
+        <article class="Encabezado">
+          <div class="Container-fluid">
+            
+            
+            <img src="https://cdn-icons-png.flaticon.com/512/129/129724.png" alt="Salir" title="Cerrar Sesion" id="OffSesion" (click)="Salir()">
+            <p id="Reloj">
+          <br> &nbsp;&nbsp;&nbsp;&nbsp;
+          {{reloj}}
+    
+        </p>
+        <router-outlet></router-outlet>
+      </div>
+      
+
+    </article>
+
+
+
+</section>

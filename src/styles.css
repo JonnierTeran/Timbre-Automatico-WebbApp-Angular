@@ -1,1 +1,169 @@
 /* You can add global styles to this file, and also import other style files */
+/**fondo del loggin*/
+#Content{
+    background: url(https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?cs=srgb&dl=pexels-pixabay-531880.jpg&fm=jpg);
+}
+
+/*Centrar Recuadro para el loggin*/
+#Aux{
+    padding-top: 1em;
+    padding-bottom:2.1em; 
+}
+
+/*Bordes y fondos del form del Loggin*/
+#Loggin{
+    background-color: white;
+    border-radius: 8px;
+    opacity: 85%;
+    border: 2px solid red;
+    box-shadow: 4px 4px 7px #999;
+
+}
+
+/*Contenedor hijo del recuadro para el login*/
+.container{
+    width: 40% !important;
+    margin-top: 70px;
+    margin-bottom: 40px;
+    
+}
+
+
+/**Elementos dentro del fondo del loggin*/
+#LogginContent{
+    padding: 58px;
+}
+
+/*Imagen del loggin*/
+#imgLog{
+    height: 140px;
+    width: 150px;
+    margin-left: 130px;
+    cursor: alias;
+}
+
+
+/*Input del loggin*/
+.form-floating mb-3 mt-3{
+    text-align: center !important;
+    width: 50% !important;
+    cursor: pointer !important;
+}
+
+
+/*Btn de loggin*/
+.btn-primary{
+    margin-top: 20px;
+    text-align: center !important;
+    margin-left: 30% !important;
+    cursor: pointer !important;
+    color: black;
+}
+
+/*Forma menu lateral*/
+#MenuLateral{
+    background-color: rgb(28, 55, 141);
+    float: left;
+    width: 18em;
+    height: 45em;
+    border-radius: 1px;
+    border: 2px solid rgb(27, 26, 26);
+    box-shadow: 4px 4px 7px #999;
+
+}
+
+/*titulo menu*/
+#tittle{
+    color: white;
+    margin-top: 55px;
+    text-align: center;
+}
+
+/*Opcines del menu lateral*/
+.Options{
+    margin-top: 55px;
+}
+
+/*Items del menu lateral*/
+li{
+    margin-right: 25px;
+    margin-bottom: 15px;;
+    text-transform: uppercase;
+    box-shadow: 4px 4px 6px #999;
+    padding: 15px;
+    list-style: none;
+    cursor: pointer;
+    transition: 100ms;
+    color: white;
+    
+}
+li:active{
+    padding: 18px;
+    color: rgb(17, 236, 28);
+    transform: scale(1.02 );
+}
+/*Encabezad*/
+.Encabezado{
+    background-color: rgb(28, 55, 141);
+    height: 5em;
+    border-radius: 1px;
+    border: 2px solid rgb(27, 26, 26);
+    box-shadow: 4px 4px 7px #999;
+    
+}
+
+/*Timbre*/
+#timbreImg{
+    width: 50px;
+    height: 50px;
+    margin-left: 7em;
+    cursor: pointer;
+}
+
+/*Sesion off*/
+#OffSesion{
+    float: right;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-right: 15px;
+    transition: 0.01s all;
+}
+
+/*Presionar OffSesion*/
+#OffSesion:active{
+    transform: scale(1.3 );
+}
+
+/*Reloj Dinamico*/
+#Reloj{
+    color:white;
+    display: inline;
+    padding-left: 45px !important;
+    text-transform: uppercase;
+}
+
+/*Url activa*/
+.Ac{
+    padding: 18px;
+    color: rgb(170, 236, 17);
+    transform: scale(1.02 );
+}
+
+/*Contenedor del formulario de programacion*/
+#ContentForm{
+    margin: 50px;
+    margin-left: 20em;
+}
+
+/*encabezado del form*/
+#Prog{
+    margin-left:5.5em;
+    box-shadow: 4px 4px 7px #999;
+    display: inline;
+    padding: 5px;
+    border-radius: 8px;
+  
+}
+
