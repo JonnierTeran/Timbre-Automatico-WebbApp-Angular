@@ -1,10 +1,11 @@
+//Modulo del componente
 import { Component } from '@angular/core';
 
+//Decorador del componente
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'Timbre_Automatico_WebApp';
-}
+//Creacion y exportacion de la clase
+export class AppComponent {}

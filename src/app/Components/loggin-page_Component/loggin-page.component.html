@@ -1,23 +1,26 @@
+<!--Contenido del loggin-->
 <div id="Content">
     <article id="Aux">
         <section class="container">
-            <form id="Loggin">
+            <form  #form="ngForm" (ngSubmit)="form.valid && Ingresar(form)" id="Loggin">
                 <div id="LogginContent">
                     <img id="imgLog" src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" alt="Loggin" title="Loggin">
                     <div class="form-floating mb-3 mt-3">
-                        <input type="text" class="form-control" id="n1" placeholder="Enter User" name="num">
+                        <input type="email" class="form-control" id="n1" placeholder="Enter User" name="num" [(ngModel)]="UserInput" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" #email="ngModel" required >
                         <label for="num">Enter User</label>
+                        <span *ngIf="!email.valid && email.touched" style="color: rgb(158, 158, 38);"> &nbsp; Ingrese un usuario valido</span>
                       </div>
                       
                       <div class="form-floating mt-3 mb-3">
-                        <input type="password" class="form-control" id="n2" placeholder="Enter password" name="pswd">
+                        <input #pass="ngModel" type="password" class="form-control" id="n2" placeholder="Enter password" name="pswd" [(ngModel)]="PasswordInput" required>
                         <label for="n2">Enter Password</label>
+                        <span *ngIf="!pass.valid && pass.touched"style="color: rgb(158, 158, 38);"> &nbsp; Ingrese una contraseña valida</span>
                       </div>
-                      <button type="submit" class="btn btn-primary" (click)="Ingresar()">
+                      <button type="submit" class="btn btn-primary">
                         <span class="spinner-grow spinner-grow-sm"></span>
                        I N G R E S A R
                       </button>
-                </div>
+                    </div>
             </form>
         </section>
     </article>
