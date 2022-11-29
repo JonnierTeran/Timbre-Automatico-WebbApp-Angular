@@ -22,28 +22,29 @@ export class LogginPageComponent implements OnInit {
   public PasswordInput:string;
 
   //Arreglo con los Usuarios registrados en la base de datos
-  public Users:UserModel;
+  public Users:UserModel[];
   
   //Constructor, inicializa el servicio de router
   constructor(private Router: Router, private _Data: DataService) {
+    //Se ejecuta el metodo get del servicio
+    this._Data.GetUser();
+
     this.UserInput='';
     this.PasswordInput='';
-    this.Users = this._Data.GetUser();
+    this.Users = this._Data.user;
    }
 
-  ngOnInit(): void {
-    this.Users = this._Data.GetUser();
-    console.log(this.Users)
-    
-  }
+  ngOnInit(): void {}
   
+
+
   //Metodo ingresar, con alerta swalert2
   public Ingresar(Form:any){
-    //this.Users.forEach(Element => {
-      //console.log(Element)
-       
-       /**if(this.UserInput === Element.correo && this.PasswordInput === Element.contraseña){
-          this.Router.navigate(["TimbreAutomatico?/Home"])
+    this.Users.forEach(Element => {
+       if(this.UserInput === Element.correo && this.PasswordInput === Element.contraseña){
+         
+           sessionStorage.setItem('Usser', Element.correo)
+           sessionStorage.setItem('Password', Element.contraseña)
             Swal.fire({
               position: 'center',
               icon: 'success',
@@ -51,10 +52,19 @@ export class LogginPageComponent implements OnInit {
               showConfirmButton: false,
               timer: 2500
             })
-    Form.reset()
+            this.Router.navigate(["TimbreAutomatico?/Home"])
 
-        }*/
-    //})
+        }else{
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Upss...Credenciales Incorrectas',
+            showConfirmButton: false,
+            timer: 2500
+          })
+          Form.reset()
+        }
+    })
     
   }
   

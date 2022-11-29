@@ -4,22 +4,30 @@ import {Injectable} from '@angular/core'
 
 @Injectable()
 export class DataService{
-    user:UserModel;
-
+    //Arreglo para almacenar usuarios registrados
+    user:UserModel[];
+    
+    //Contructor: Inicializa el servicio y atributos
     constructor(private _HttpClient: HttpClient){
-        this.user= new UserModel(0,'','','','')
+        this.user= []
      }
-
-    public GetUser():UserModel{
-        this._HttpClient.get<UserModel[]>('https://nancy-server.onrender.com/api/users')
+    
+    //Metodo para obtener los datos de los usuarios registrados desde una Api 
+    public GetUser(){
+       this._HttpClient.get<UserModel[]>('https://nancy-server.onrender.com/api/users')
         .subscribe(
             (Response:UserModel[]) =>  {
-                 
+                 Response.forEach((element) =>{
+                        this.user.push(element)
+                 })
             } , 
-            Error => console.log(Error))
+            Error => {
+                console.log(Error)})
+        
+             
             
       
-         return this.user;
+        
     }
 
 }
