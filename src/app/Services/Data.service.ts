@@ -72,7 +72,9 @@ export class DataService{
 
 
 }
- 
-  
 
+public ConsularReg(id:string):Observable<any>{
+    return this._HttpClient.get<CalendarModel>('https://nancy-server.onrender.com/api/calendar/'+id)
+ 
+}
 }

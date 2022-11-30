@@ -1,6 +1,7 @@
 //Modulos necesarios
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EditarCalendarPageComponent } from './Components/editar-calendar-pageComponent/editar-calendar-page.component';
 
 //Componentes de la aplicacion
 import { ErrorPageComponent } from './Components/error-page_Component/error-page.component';
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path:"Loggin" , component:LogginPageComponent},
   {path:"TimbreAutomatico?/Home", component: HomePageComponent, children:[
     {path:"Listado/Activos", component: ListadoTimbresPageComponent},
-    {path:"Formulario/Registro" , component:FormProgramarTimbrePageComponent}
+    {path:"Formulario/Registro" , component:FormProgramarTimbrePageComponent},
+    {path:"Registros/UpdateReg/:id" , component: EditarCalendarPageComponent}
   ]},
   {path:"**" , component:ErrorPageComponent}
 ];

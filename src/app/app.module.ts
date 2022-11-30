@@ -15,6 +15,7 @@ import { DataService } from './Services/Data.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListadoTimbresPageComponent } from './Components/listado-timbres-page_Component/listado-timbres-page.component';
 import { CalendarService } from './Services/Calendar.services';
+import { EditarCalendarPageComponent } from './Components/editar-calendar-pageComponent/editar-calendar-page.component';
 
 //Decorador del modulo
 @NgModule({
@@ -25,7 +26,8 @@ import { CalendarService } from './Services/Calendar.services';
     ErrorPageComponent,
     HomePageComponent,
     FormProgramarTimbrePageComponent,
-    ListadoTimbresPageComponent
+    ListadoTimbresPageComponent,
+    EditarCalendarPageComponent
   ],
   imports: [
     //Modulos
