@@ -17,7 +17,8 @@ export class DataService{
 
     
       private HEADERS: HttpHeaders;
-
+        
+      public Calendaredit:CalendarModel;
     
     //Contructor: Inicializa el servicio y atributos
     constructor(private _HttpClient: HttpClient){
@@ -28,6 +29,8 @@ export class DataService{
             //'Access-Control-Allow-Origin':'http://localhost:4200/',
            // 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS'
           });
+
+          this.Calendaredit= new CalendarModel('','','','','','','','','','','')
      }
     
     //Metodo para obtener los datos de los usuarios registrados desde una Api 
@@ -75,6 +78,9 @@ export class DataService{
 
 public ConsularReg(id:string):Observable<any>{
     return this._HttpClient.get<CalendarModel>('https://nancy-server.onrender.com/api/calendar/'+id)
- 
+        
+    
 }
+
+
 }
