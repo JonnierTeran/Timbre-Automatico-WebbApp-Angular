@@ -5,19 +5,19 @@
         <h2 id="Prog" class="container"> PROGRAMACION DEL TIMBRE ESCOLAR</h2>
 
         <br><br>
-        <form class="container-fluid">
+        <form class="container-fluid" [formGroup]="timbreForm">
               <div class="form-floating mt-3 mb-3">
-                <input type="text" class="form-control" id="n2" placeholder="Enter password" name="name" FormControlName="Nombre">
+                <input type="text" class="form-control" id="n2" placeholder="Enter password" name="name" formControlName="nombre" >
                 <label for="n1">Ingrese Nombre/Ref</label>
               </div>
     
               <div class="form-floating mt-3 mb-3">
-                <input type="date" class="form-control" id="n2" placeholder="Enter password" name="date" FormControlName="Fecha">
+                <input type="date" class="form-control" id="n2" placeholder="Enter password" name="date" formControlName="dia">
                 <label for="n2">Ingrese Fecha</label>
               </div>
     
               <div class="form-floating mt-3 mb-3">
-                <input type="time" class="form-control" id="n2" placeholder="Enter password" name="time" FormControlName="Hora">
+                <input type="time" class="form-control" id="n2" placeholder="Enter password" name="time" formControlName="hora">
                 <label for="n3">ingrese Hora</label>
               </div>
 
@@ -27,42 +27,42 @@
               <div id="Dias">
                 <div class="container-fluid"  class="DiaSemana">
                   <label>Lunes</label> &nbsp;
-                  <input type="checkbox">
+                  <input formControlName="lunes" type="checkbox">
                 </div>
           
 
                 <div class="container-fluid" class="DiaSemana">
                   <label>Martes</label> &nbsp;
-                  <input type="checkbox">
+                  <input formControlName="martes" type="checkbox">
                 </div>
            
 
                 <div class="container-fluid" class="DiaSemana">
                   <label>Miercoles</label> &nbsp;
-                  <input type="checkbox">
+                  <input formControlName="miercoles" type="checkbox">
                 </div>
     
 
                 <div class="container-fluid" class="DiaSemana">
                   <label>Jueves</label> &nbsp;
-                  <input type="checkbox">
+                  <input formControlName="jueves" type="checkbox">
                 </div>
 
                 <div class="container-fluid" class="DiaSemana">
                   <label>Viernes</label> &nbsp;
-                  <input type="checkbox">
+                  <input formControlName="viernes" type="checkbox">
                 </div>
           
 
                 <div class="container-fluid" class="DiaSemana">
                   <label>Sabado</label> &nbsp;
-                  <input type="checkbox">
+                  <input formControlName="sabado" type="checkbox">
                 </div>
           
 
                 <div class="container-fluid" class="DiaSemana">
                   <label>Domingo</label> &nbsp;
-                  <input type="checkbox">
+                  <input formControlName="domingo" type="checkbox">
                 </div>
            
 

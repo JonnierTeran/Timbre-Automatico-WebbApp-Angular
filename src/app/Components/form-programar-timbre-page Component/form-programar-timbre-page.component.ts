@@ -19,6 +19,7 @@ export class FormProgramarTimbrePageComponent implements OnInit {
       // Datos encabezado
       nombre: ['', Validators.required],
       dia: [''],
+      hora: [''],
       lunes: [''],
       martes: [''],
       miercoles: [''],
