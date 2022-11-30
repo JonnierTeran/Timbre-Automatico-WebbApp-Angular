@@ -1,7 +1,6 @@
 //Modulos del componente
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CalendarModel } from 'src/app/Models/Calendar.models';
 import { CalendarService } from 'src/app/Services/Calendar.services';
 
 //Decorador del componente
@@ -14,6 +13,7 @@ import { CalendarService } from 'src/app/Services/Calendar.services';
 export class FormProgramarTimbrePageComponent implements OnInit {
 
   timbreForm: FormGroup;
+  
   constructor(private _CalendarService: CalendarService,  private _formBuilder: FormBuilder) {
     this.timbreForm = this._formBuilder.group({
       // Datos encabezado
