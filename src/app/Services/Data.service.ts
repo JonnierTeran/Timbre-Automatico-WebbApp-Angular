@@ -11,7 +11,8 @@ export class DataService{
 
     //Arreglo para horarios
     Calendar:CalendarModel[]
-    url="https://nancy-server.onrender.com/api/addcalendar";
+    url="https://nancy-server.onrender.com/api";
+   // url="http://localhost:3000/api";
 
     
       private HEADERS: HttpHeaders;
@@ -22,17 +23,16 @@ export class DataService{
         this.user= [];
         this.Calendar= [];
         this.HEADERS = new HttpHeaders({
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Access-Control-Allow-Origin':'*',
-            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
-            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS'
+           // 'Content-Type': 'application/x-www-form-urlencoded',
+            //'Access-Control-Allow-Origin':'http://localhost:4200/',
+           // 'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS'
           });
      }
     
     //Metodo para obtener los datos de los usuarios registrados desde una Api 
     public GetUser(){
         
-       this._HttpClient.get<UserModel[]>('https://nancy-server.onrender.com/api/users',{ headers: this.HEADERS })
+       this._HttpClient.get<UserModel[]>('https://nancy-server.onrender.com/api/users')//,{ headers: this.HEADERS })
         .subscribe(
             (Response:UserModel[]) =>  {
                  Response.forEach((element) =>{
@@ -45,7 +45,7 @@ export class DataService{
 
     //Gett De Horarios programados
     public GetHorarios(){
-      this._HttpClient.get<CalendarModel[]>('https://nancy-server.onrender.com/api/calendar',{ headers: this.HEADERS })
+      this._HttpClient.get<CalendarModel[]>('https://nancy-server.onrender.com/api/calendar')//,{ headers: this.HEADERS })
       .subscribe(
           (Response:CalendarModel[]) =>  {
                Response.forEach((elemento) =>{
@@ -76,8 +76,8 @@ export class DataService{
        estado:'S'
     }
 
-
-  this._HttpClient.post<any>('https://nancy-server.onrender.com/api/addcalendar',Prueba)
+    
+  this._HttpClient.post<any>('https://nancy-server.onrender.com/api/addcalendar',Prueba)//,{ headers: this.HEADERS })
       .subscribe(
         Response => {
           console.log(Response)
@@ -104,7 +104,7 @@ export class DataService{
          estado:'S'
       }
   
-      return this._HttpClient.post<any>(this.url, Prueba,{ headers: this.HEADERS });
+      return this._HttpClient.post<any>(this.url+'/addcalendar', Prueba)
  }
     
 
