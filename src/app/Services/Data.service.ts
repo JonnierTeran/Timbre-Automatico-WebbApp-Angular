@@ -32,7 +32,7 @@ export class DataService{
     //Metodo para obtener los datos de los usuarios registrados desde una Api 
     public GetUser(){
         
-       this._HttpClient.get<UserModel[]>('https://nancy-server.onrender.com/api/users',{ headers: this.HEADERS })
+       this._HttpClient.get<UserModel[]>('https://nancy-server.onrender.com/api/users' )
         .subscribe(
             (Response:UserModel[]) =>  {
                  Response.forEach((element) =>{
@@ -45,7 +45,7 @@ export class DataService{
 
     //Gett De Horarios programados
     public GetHorarios(){
-      this._HttpClient.get<CalendarModel[]>('https://nancy-server.onrender.com/api/calendar',{ headers: this.HEADERS })
+      this._HttpClient.get<CalendarModel[]>('https://nancy-server.onrender.com/api/calendar')
       .subscribe(
           (Response:CalendarModel[]) =>  {
                Response.forEach((elemento) =>{
@@ -60,8 +60,7 @@ export class DataService{
 
     //Programar un nuevo horario
     public RegistrarCalendar(Obj?:CalendarModel){
-      let Prueba;//:CalendarModel;
-     // Prueba= Object{'Hora12','2022-11-02','12:00:00','S','N','S','S','S','S','N','S'
+      let Prueba;
      Prueba = {
       nombre:'Hora12',
        dia:'2022-11-02',
@@ -89,7 +88,7 @@ export class DataService{
 
 
 
-    addCalendar(Obj?:CalendarModel): Observable<any> {
+   /* addCalendar(Obj?:CalendarModel): Observable<any> {
       let Prueba = {
         nombre:'Hora12',
          dia:'2022-11-02',
@@ -106,6 +105,6 @@ export class DataService{
   
       return this._HttpClient.post<any>(this.url, Prueba,{ headers: this.HEADERS });
  }
-    
+ */   
 
 }

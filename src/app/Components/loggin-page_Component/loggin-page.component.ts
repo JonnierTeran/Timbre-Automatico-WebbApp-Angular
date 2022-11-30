@@ -64,7 +64,11 @@ export class LogginPageComponent implements OnInit {
           })
           Form.reset()
         }
+
     })
+
+    
+  
     
   }
   

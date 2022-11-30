@@ -1,5 +1,4 @@
 //Modulos del componente
-import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -91,17 +90,17 @@ export class FormProgramarTimbrePageComponent implements OnInit {
     
     this.timbreForm.reset()
     
+
+    this._DataService.RegistrarCalendar()
+    
     this._Router.navigate(['TimbreAutomatico?/Home/Listado/Activos'])
     
       
   }}
 
+
   Prueba(){
     
-    this._DataService.addCalendar().subscribe(e=>{
-      console.log(e);
-    })
-   // this._DataService.RegistrarCalendar()
 
   }
    
