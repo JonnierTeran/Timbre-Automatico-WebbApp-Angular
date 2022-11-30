@@ -1,10 +1,7 @@
 //Modulos del componente
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-=======
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
->>>>>>> 1fc723203c64312fcc734be64447cf6dc6014c03
 import { CalendarModel } from 'src/app/Models/Calendar.models';
 import { CalendarService } from 'src/app/Services/Calendar.services';
 
@@ -41,6 +38,7 @@ export class FormProgramarTimbrePageComponent implements OnInit {
   }
 =======
   timbreForm: FormGroup;
+  
   constructor(private _CalendarService: CalendarService,  private _formBuilder: FormBuilder) {
     this.timbreForm = this._formBuilder.group({
       // Datos encabezado
@@ -58,6 +56,15 @@ export class FormProgramarTimbrePageComponent implements OnInit {
   })}
   
   ngOnInit(): void {}
+
+
+
+
+
+  ejecutar(){
+    console.log(this.timbreForm.value);
+    
+  }
    
 >>>>>>> 1fc723203c64312fcc734be64447cf6dc6014c03
 }
