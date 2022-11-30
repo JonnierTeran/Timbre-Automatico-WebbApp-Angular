@@ -51,6 +51,7 @@ export class FormProgramarTimbrePageComponent implements OnInit {
       Obj.martes = 'S'
     }else{
       Obj.martes = 'N'
+    }
 
       if(Obj.miercoles === true){
         Obj.miercoles = 'S'
@@ -91,19 +92,15 @@ export class FormProgramarTimbrePageComponent implements OnInit {
     this.timbreForm.reset()
     
 
-    this._DataService.RegistrarCalendar()
     
+
     this._Router.navigate(['TimbreAutomatico?/Home/Listado/Activos'])
     
       
-  }}
-
-
-  Prueba(){
-    
-
   }
-   
-
 }
+
+
+
+
 
