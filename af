@@ -1,0 +1,80 @@
+[33mcommit 71fc2a3691719c4cd5a2540260bd0dfe1b85d490[m[33m ([m[1;36mHEAD -> [m[1;32mmaestro[m[33m)[m
+Merge: 610a532 80032a0
+Author: Jonnier Andres Teran Morales <jonnierteranmorales@gmail.com>
+Date:   Wed Nov 30 00:23:48 2022 -0500
+
+    a
+
+[33mcommit 610a532f71a7bd4be62dd17ffe778edec267014f[m
+Merge: cdf62c7 1fc7232
+Author: Jonnier Andres Teran Morales <jonnierteranmorales@gmail.com>
+Date:   Wed Nov 30 00:17:01 2022 -0500
+
+    a
+
+[33mcommit 80032a0e5f3468422eb3b6fe921d820a84db00b8[m[33m ([m[1;31morigin/maestro[m[33m)[m
+Merge: 6f89a06 cdba803
+Author: Jonnier Andres Teran Morales <jonnierteranmorales@gmail.com>
+Date:   Wed Nov 30 00:06:01 2022 -0500
+
+    Merge branch 'maestro' of https://github.com/JonnierTeran/Timbre-Automatico-WebbApp-Angular into maestro
+
+[33mcommit 6f89a064fcafe618d769182506cbfc88b82804b8[m
+Author: Jonnier Andres Teran Morales <jonnierteranmorales@gmail.com>
+Date:   Wed Nov 30 00:05:50 2022 -0500
+
+    Cambios
+
+[33mcommit cdba8033ede3851e044946c5f469354dfde0b42b[m
+Author: Oscar Ballesta <oscarbc@digitalware.com.co>
+Date:   Tue Nov 29 23:56:46 2022 -0500
+
+    validando form
+
+[33mcommit cdf62c70506caada7540f10ae142fadbef348b73[m
+Author: Jonnier Andres Teran Morales <jonnierteranmorales@gmail.com>
+Date:   Tue Nov 29 23:48:42 2022 -0500
+
+    ..
+
+[33mcommit 1fc723203c64312fcc734be64447cf6dc6014c03[m
+Author: Oscar Ballesta <oscarbc@digitalware.com.co>
+Date:   Tue Nov 29 23:36:37 2022 -0500
+
+    Modificando html form
+
+[33mcommit 0d2674ef3d5e247c88fe48934e65c99c81abb518[m
+Author: Oscar Ballesta <oscarbc@digitalware.com.co>
+Date:   Tue Nov 29 23:32:21 2022 -0500
+
+    Agregando reactive forms
+
+[33mcommit 16a04e04339c057d0aecea5c2ec4973c44695e86[m
+Author: Jonnier Andres Teran Morales <jonnierteranmorales@gmail.com>
+Date:   Tue Nov 29 20:06:56 2022 -0500
+
+    Desarrollo del form
+
+[33mcommit e9fe6aa9c030f5dd1c93a3ff02ec3ee1b723b26e[m
+Author: Jonnier Andres Teran Morales <jonnierteranmorales@gmail.com>
+Date:   Tue Nov 29 15:25:52 2022 -0500
+
+    Finalizacion de loggin
+
+[33mcommit 002ba6d487f3db8ce7ff9d2c5fe5f79e8f3ca438[m
+Author: Jonnier Andres Teran Morales <jonnierteranmorales@gmail.com>
+Date:   Tue Nov 29 14:01:59 2022 -0500
+
+    Maquetado webbApp
+
+[33mcommit 90db2f396db2c6f3a7e12a57a88265bb765c8322[m
+Author: Jonnier Andres Teran Morales <jonnierteranmorales@gmail.com>
+Date:   Tue Nov 29 01:43:23 2022 -0500
+
+    Maquetacion WebApp Timbre Automatico
+
+[33mcommit 961a9f5e98518db65986c97231a7fadf583d0e5b[m
+Author: Jonnier Andres Teran Morales <jonnierteranmorales@gmail.com>
+Date:   Mon Nov 28 16:12:25 2022 -0500
+
+    initial commit
