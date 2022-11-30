@@ -14,12 +14,18 @@ export class EditarCalendarPageComponent implements OnInit, AfterViewInit {
   ActualizarForm:FormGroup;
   
   id:string;
-  ObjCalendar:CalendarModel;
-  ObjCalendar1:any[]=[];
+  ObjCalendar:CalendarModel[];
 
-  constructor(private _formBuilder: FormBuilder, private _Route:ActivatedRoute, private _DataService:DataService, private _Router:Router) {
+ 
+  
+
+  constructor(private _formBuilder: FormBuilder, private _Route:ActivatedRoute,
+               private _DataService:DataService, private _Router:Router) {
     
     
+    this.ObjCalendar = [] // new CalendarModel('','','','','','','','','','','');
+    this.id = '';
+
     this.ActualizarForm = this._formBuilder.group({
       // Datos encabezado
       nombre: ['', Validators.required],
@@ -35,11 +41,6 @@ export class EditarCalendarPageComponent implements OnInit, AfterViewInit {
       estado: ['S', Validators.required]
   })
 
-  this.ObjCalendar =  new CalendarModel('','','','','','','','','','','')
-  
-  this.id = '';
-
-  
 }
 
 
@@ -50,29 +51,40 @@ ngOnInit(): void {
   //this._DataService.ConsularReg(this.id);
   
   this.consultarHorario();  
-  
-}
-
-ngAfterViewInit(): void {
-  
- // this.ObjCalendar = this._DataService.Calendaredit;
-  this.AsignarFormulario()
 
 }
+
 
 consultarHorario(){
-  this._DataService.ConsularReg(this.id!).subscribe(
-    e => this.ObjCalendar = e
-  )
-  
-
+  this._DataService.ConsularReg(this.id)
+  .subscribe(
+    e => {
+      this.ObjCalendar = e
+    })
   }
+
+
+ngAfterViewInit(): void {
+  setTimeout(()=>{
+    this.AsignarFormulario()
+  },2000)
+}
+
 
   
   AsignarFormulario(){
     console.log(this.ObjCalendar);
-    this.ActualizarForm.controls['nombre'].setValue( "malparido")
-  
+    console.log(this.ObjCalendar[0].nombre);
+    
+    this.ActualizarForm.controls['nombre'].setValue(this.ObjCalendar[0].nombre)
+    this.ActualizarForm.controls['lunes'].setValue(this.ObjCalendar[0].lunes)
+    this.ActualizarForm.controls['martes'].setValue(this.ObjCalendar[0].martes)
+    this.ActualizarForm.controls['miercoles'].setValue(this.ObjCalendar[0].miercoles)
+    this.ActualizarForm.controls['jueves'].setValue(this.ObjCalendar[0].jueves)
+    this.ActualizarForm.controls['viernes'].setValue(this.ObjCalendar[0].viernes)
+    this.ActualizarForm.controls['sabado'].setValue(this.ObjCalendar[0].sabado)
+    this.ActualizarForm.controls['domingo'].setValue(this.ObjCalendar[0].domingo)
+    
     
   }
   
