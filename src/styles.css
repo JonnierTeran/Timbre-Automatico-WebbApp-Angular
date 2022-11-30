@@ -65,7 +65,7 @@
     background-color: rgb(28, 55, 141);
     float: left;
     width: 18em;
-    height: 45em;
+    height: 42em;
     border-radius: 1px;
     border: 2px solid rgb(27, 26, 26);
     box-shadow: 4px 4px 7px #999;
@@ -87,7 +87,7 @@
 /*Items del menu lateral*/
 li{
     margin-right: 25px;
-    margin-bottom: 15px;;
+    margin-bottom: 35px;;
     text-transform: uppercase;
     box-shadow: 4px 4px 6px #999;
     padding: 15px;
@@ -98,7 +98,7 @@ li{
     
 }
 li:active{
-    padding: 18px;
+    padding: 15px;
     color: rgb(17, 236, 28);
     transform: scale(1.02 );
 }
@@ -146,7 +146,6 @@ li:active{
 
 /*Url activa*/
 .Ac{
-    padding: 18px;
     color: rgb(170, 236, 17);
     transform: scale(1.02 );
 }
@@ -167,3 +166,19 @@ li:active{
   
 }
 
+/*check de los dias en el form*/
+#Dias{
+    justify-content: center !important;
+}
+
+/*Selec Dias*/
+.DiaSemana{
+    display: inline;
+    margin-left: 30px;
+}
+
+/*Table de inform*/
+.table{
+  background-color: rgb(100, 197, 241);
+  cursor: pointer;
+}

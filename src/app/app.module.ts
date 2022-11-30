@@ -12,7 +12,9 @@ import { HomePageComponent } from './Components/home-page_Component/home-page.co
 import { FormProgramarTimbrePageComponent } from './Components/form-programar-timbre-page Component/form-programar-timbre-page.component';
 //Servicios
 import { DataService } from './Services/Data.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ListadoTimbresPageComponent } from './Components/listado-timbres-page_Component/listado-timbres-page.component';
+import { CalendarService } from './Services/Calendar.services';
 
 //Decorador del modulo
 @NgModule({
@@ -22,17 +24,19 @@ import { FormsModule } from '@angular/forms';
     LogginPageComponent,
     ErrorPageComponent,
     HomePageComponent,
-    FormProgramarTimbrePageComponent
+    FormProgramarTimbrePageComponent,
+    ListadoTimbresPageComponent
   ],
   imports: [
     //Modulos
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   //Servicios
-  providers: [DataService],
+  providers: [DataService, CalendarService],
   //Componente pricipal
   bootstrap: [AppComponent]
 })

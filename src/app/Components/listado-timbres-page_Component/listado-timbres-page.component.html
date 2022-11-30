@@ -1,0 +1,48 @@
+<div id="ContentForm">
+    <div class="container-fluid">
+        <br>
+        <h2 id="Prog" class="container"> HORARIOS DE ACTIVACION PARA EL TIMBRE</h2>
+
+        <div class="container-fluid">
+            <br><br>
+            <div class="contentForm">
+                <hr>
+                <table class="table">
+                    <thead>
+                      <tr style="background-color: rgb(0, 81, 255); color: white;">
+                        <th scope="col">id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">&nbsp;&nbsp;&nbsp;&nbsp;Dia</th>
+                        <th scope="col">Hora de inicio</th>
+                        <th scope="col">Lunes</th>
+                        <th scope="col">Martes</th>
+                        <th scope="col">Miercoles</th>
+                        <th scope="col">Jueves</th>
+                        <th scope="col">Viernes</th>
+                        <th scope="col">Sabado</th>
+                        <th scope="col">Domingo</th>
+                        <th scope="col">Estado</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let element of Calendar; let i = index" class="Table" >
+                        <th scope="row">{{i + 1}}</th>
+                        <td>{{element.nombre}}</td>
+                        <td>{{element.dia}}</td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;{{ element.hora}}</td>
+                        <td>&nbsp;&nbsp;{{element.Lunes}}</td>
+                        <td>&nbsp;&nbsp;{{element.Martes}}</td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;{{element.Miercoles}}</td>
+                        <td>&nbsp;&nbsp;{{element.Jueves}}</td>
+                        <td>&nbsp;&nbsp;{{element.Viernes}}</td>
+                        <td>&nbsp;&nbsp;{{element.Sabado}}</td>
+                        <td>&nbsp;&nbsp;&nbsp;&nbsp;{{element.Domingo}}</td>
+                        <td>&nbsp;&nbsp;{{element.Estado}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>

@@ -35,7 +35,7 @@ export class HomePageComponent implements OnInit {
     }, 1000);
     
     //Cargamos el componente de registro al cargar el componente home
-    this.Router.navigate(["TimbreAutomatico?/Home/Formulario/Registro"]);
+    this.Router.navigate(["TimbreAutomatico?/Home/Listado/Activos"]);
    
     
   }

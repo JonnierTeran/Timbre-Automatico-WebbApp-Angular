@@ -6,33 +6,72 @@
 
         <br><br>
         <form class="container-fluid">
-            <div class="form-floating mt-3 mb-3">
-                <input type="number" class="form-control" id="n2" placeholder="Enter password" name="pswd">
-                <label for="n2">Ingrese id</label>
+              <div class="form-floating mt-3 mb-3">
+                <input type="text" class="form-control" id="n2" placeholder="Enter password" name="name" FormControlName="Nombre">
+                <label for="n1">Ingrese Nombre/Ref</label>
               </div>
     
               <div class="form-floating mt-3 mb-3">
-                <input type="text" class="form-control" id="n2" placeholder="Enter password" name="pswd">
-                <label for="n2">Ingrese Nombre/Ref</label>
-              </div>
-    
-              <div class="form-floating mt-3 mb-3">
-                <input type="date" class="form-control" id="n2" placeholder="Enter password" name="pswd">
+                <input type="date" class="form-control" id="n2" placeholder="Enter password" name="date" FormControlName="Fecha">
                 <label for="n2">Ingrese Fecha</label>
               </div>
     
               <div class="form-floating mt-3 mb-3">
-                <input type="time" class="form-control" id="n2" placeholder="Enter password" name="pswd">
-                <label for="n2">ingrese Hora</label>
+                <input type="time" class="form-control" id="n2" placeholder="Enter password" name="time" FormControlName="Hora">
+                <label for="n3">ingrese Hora</label>
               </div>
+
+              
+              <h4>Elija los dias de la semana en que se repetira:</h4>
+              
+              <div id="Dias">
+                <div class="container-fluid"  class="DiaSemana">
+                  <label>Lunes</label> &nbsp;
+                  <input type="checkbox">
+                </div>
+          
+
+                <div class="container-fluid" class="DiaSemana">
+                  <label>Martes</label> &nbsp;
+                  <input type="checkbox">
+                </div>
+           
+
+                <div class="container-fluid" class="DiaSemana">
+                  <label>Miercoles</label> &nbsp;
+                  <input type="checkbox">
+                </div>
     
-              <div class="form-floating mt-3 mb-3">
-                <input type="text" class="form-control" id="n2" placeholder="Enter password" name="pswd">
-                <label for="n2">Estado</label>
+
+                <div class="container-fluid" class="DiaSemana">
+                  <label>Jueves</label> &nbsp;
+                  <input type="checkbox">
+                </div>
+
+                <div class="container-fluid" class="DiaSemana">
+                  <label>Viernes</label> &nbsp;
+                  <input type="checkbox">
+                </div>
+          
+
+                <div class="container-fluid" class="DiaSemana">
+                  <label>Sabado</label> &nbsp;
+                  <input type="checkbox">
+                </div>
+          
+
+                <div class="container-fluid" class="DiaSemana">
+                  <label>Domingo</label> &nbsp;
+                  <input type="checkbox">
+                </div>
+           
+
               </div>
+              <br>
+              
               <input type="reset" name="Eliminar campos" class="btn btn-outline-info">
               &nbsp;&nbsp;&nbsp;
-              <input type="submit" name="Registrar"  class="btn btn-outline-primary" value="Activar timbre">
+              <button type="submit" class="btn btn-outline-primary">ACTIVAR TIMBRE</button>
         </form>
 
         <br><br>
