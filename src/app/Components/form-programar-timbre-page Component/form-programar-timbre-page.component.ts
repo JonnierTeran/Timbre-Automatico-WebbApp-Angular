@@ -31,5 +31,14 @@ export class FormProgramarTimbrePageComponent implements OnInit {
   })}
   
   ngOnInit(): void {}
+
+
+
+
+
+  ejecutar(){
+    console.log(this.timbreForm.value);
+    
+  }
    
 }
