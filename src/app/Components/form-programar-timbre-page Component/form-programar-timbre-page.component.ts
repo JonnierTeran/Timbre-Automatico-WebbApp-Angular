@@ -1,7 +1,7 @@
 //Modulos del componente
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CalendarModel } from 'src/app/Models/Calendar.models';
 import { CalendarService } from 'src/app/Services/Calendar.services';
 
@@ -14,40 +14,18 @@ import { CalendarService } from 'src/app/Services/Calendar.services';
 //Clase del componente para registrar horarios
 export class FormProgramarTimbrePageComponent implements OnInit {
 
-<<<<<<< HEAD
-  CalendarForm = new FormGroup({
-    Nombre: new FormControl('', [Validators.required]),
-    Fecha: new FormControl('', [Validators.required]),
-    Hora: new FormControl('', [Validators.required]),
-    Lunes: new FormControl(''),
-    Martes: new FormControl(''),
-    Miercoles: new FormControl(''),
-    Jueves: new FormControl(''),
-    Viernes: new FormControl(''),
-    Sabado: new FormControl(''),
-    Domingo: new FormControl(''),
-  
+    timbreForm:FormGroup;
 
-  });
+  constructor(private _CalendarService: CalendarService,  private _formBuilder: FormBuilder, private _Router: Router) {
 
-  constructor(private _CalendarService: CalendarService) {}
-  ngOnInit(): void {}
-
-  onSubmit(){
-    this.CalendarForm.reset
-  }
-=======
-  timbreForm: FormGroup;
-  
-  constructor(private _CalendarService: CalendarService,  private _formBuilder: FormBuilder) {
     this.timbreForm = this._formBuilder.group({
       // Datos encabezado
       nombre: ['', Validators.required],
-      dia: [''],
-      hora: [''],
+      dia: ['', ],
+      hora: ['',Validators.required],
       lunes: [''],
       martes: [''],
-      miercoles: [''],
+      miercoles: [''], 
       jueves: [''],
       viernes: [''],
       sabado: [''],
@@ -59,12 +37,62 @@ export class FormProgramarTimbrePageComponent implements OnInit {
 
 
 
-
-
   ejecutar(){
-    console.log(this.timbreForm.value);
+    let Obj = this.timbreForm.value;    
     
+    if(Obj.lunes === true){
+      Obj.lunes = 'S'
+    }else{
+      Obj.lunes = 'N'
+    }
+
+    if(Obj.martes === true){
+      Obj.martes = 'S'
+    }else{
+      Obj.martes = 'N'
+
+      if(Obj.miercoles === true){
+        Obj.miercoles = 'S'
+      }else{
+        Obj.miercoles = 'N'
+      }
+
+      if(Obj.jueves === true){
+        Obj.jueves = 'S'
+      }else{
+        Obj.jueves = 'N'
+      }
+
+      if(Obj.viernes === true){
+        Obj.viernes = 'S'
+      }else{
+        Obj.viernes = 'N'
+      }
+
+      if(Obj.sabado === true){
+        Obj.sabado = 'S'
+      }else{
+        Obj.sabado = 'N'
+      }
+
+      if(Obj.domingo === true){
+        Obj.domingo = 'S'
+      }else{
+        Obj.domingo = 'N'
+      }
+    
+      
+    let CalendarObj = new CalendarModel(Obj.nombre,Obj.dia,Obj.hora,Obj.lunes,Obj.martes,Obj.miercoles,Obj.jueves,Obj.viernes,Obj.sabado,Obj.domingo,Obj.estado)
+    console.log(CalendarObj)
+    this._CalendarService.AgregarNuevo(CalendarObj)
+
+    this.timbreForm.reset()
+    
+    this._Router.navigate(['TimbreAutomatico?/Home/Listado/Activos'])
+
+      
   }
    
->>>>>>> 1fc723203c64312fcc734be64447cf6dc6014c03
+
+}
 }
