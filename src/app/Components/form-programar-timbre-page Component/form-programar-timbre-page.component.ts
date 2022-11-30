@@ -1,6 +1,6 @@
 //Modulos del componente
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CalendarModel } from 'src/app/Models/Calendar.models';
 import { CalendarService } from 'src/app/Services/Calendar.services';
 
@@ -12,6 +12,26 @@ import { CalendarService } from 'src/app/Services/Calendar.services';
 })
 //Clase del componente para registrar horarios
 export class FormProgramarTimbrePageComponent implements OnInit {
+
+  CalendarForm = new FormGroup({
+    Nombre: new FormControl('', [Validators.required]),
+    Fecha: new FormControl('', [Validators.required]),
+    Hora: new FormControl('', [Validators.required]),
+    Lunes: new FormControl(''),
+    Martes: new FormControl(''),
+    Miercoles: new FormControl(''),
+    Jueves: new FormControl(''),
+    Viernes: new FormControl(''),
+    Sabado: new FormControl(''),
+    Domingo: new FormControl(''),
+  
+
+  });
+
   constructor(private _CalendarService: CalendarService) {}
   ngOnInit(): void {}
+
+  onSubmit(){
+    this.CalendarForm.reset
+  }
 }
