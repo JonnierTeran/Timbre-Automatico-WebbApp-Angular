@@ -3,15 +3,15 @@ export class CalendarModel{
     //Atributos 
    public nombre:string;
    public dia:string;
-   public  hora:string;
-   public Lunes:string;
-   public Martes:string;
-   public Miercoles:string;
-   public Jueves:string;
-   public Viernes:string;
-   public Sabado:string;
-   public Domingo:string;
-   public Estado:string
+   public hora:string;
+   public lunes:string;
+   public martes:string;
+   public miercoles:string;
+   public jueves:string;
+   public viernes:string;
+   public sabado:string;
+   public domingo:string;
+   public estado:string
 
    //Constructos de obj
     constructor(nombre:string, dia:string, hora:string, Lunes:string, Martes:string, 
@@ -20,14 +20,14 @@ export class CalendarModel{
             this.nombre=nombre;
             this.dia=dia;
             this.hora=hora;
-            this.Lunes=Lunes;
-            this.Martes=Martes;
-            this.Miercoles=Miercoles;
-            this.Jueves=Jueves;
-            this.Viernes= Viernes;
-            this.Sabado = Sabado;
-            this.Domingo = Domingo;
-            this.Estado = Estado;
+            this.lunes=Lunes;
+            this.martes=Martes;
+            this.miercoles=Miercoles;
+            this.jueves=Jueves;
+            this.viernes= Viernes;
+            this.sabado = Sabado;
+            this.domingo = Domingo;
+            this.estado = Estado;
         }
           
 }

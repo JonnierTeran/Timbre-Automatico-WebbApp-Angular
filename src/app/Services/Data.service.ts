@@ -38,6 +38,7 @@ export class DataService{
                 console.log(Error)})        
     }
 
+    //Gett De Horarios programados
     public GetHorarios(){
       this._HttpClient.get<CalendarModel[]>('https://nancy-server.onrender.com/api/calendar',{ headers: this.HEADERS })
       .subscribe(
@@ -52,6 +53,33 @@ export class DataService{
 
     }
 
+    //Programar un nuevo horario
+    public RegistrarCalendar(Obj?:CalendarModel){
+      let Prueba;//:CalendarModel;
+     // Prueba= Object{'Hora12','2022-11-02','12:00:00','S','N','S','S','S','S','N','S'
+     Prueba = {
+      nombre:'Hora12',
+       dia:'2022-11-02',
+       hora:'12:00:00',
+       lunes:'S',
+       martes:'S',
+       miercoles:'S',
+       jueves:'S',
+       viernes:'S',
+       sabado:'S',
+       domingo:'S',
+       estado:'S'
+    }
+
+
+  this._HttpClient.post<any>('https://nancy-server.onrender.com/api/addcalendar',Prueba)
+      .subscribe(
+        Response => {
+          console.log(Response)
+        }, Error => console.log(Error)
+      )
+
+    }
     
 
 }

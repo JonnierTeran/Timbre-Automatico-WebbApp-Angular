@@ -1,9 +1,11 @@
 //Modulos del componente
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CalendarModel } from 'src/app/Models/Calendar.models';
 import { CalendarService } from 'src/app/Services/Calendar.services';
+import { DataService } from 'src/app/Services/Data.service';
 
 //Decorador del componente
 @Component({
@@ -16,7 +18,7 @@ export class FormProgramarTimbrePageComponent implements OnInit {
 
     timbreForm:FormGroup;
 
-  constructor(private _CalendarService: CalendarService,  private _formBuilder: FormBuilder, private _Router: Router) {
+  constructor(private _CalendarService: CalendarService,  private _formBuilder: FormBuilder, private _Router: Router, private _DataService: DataService) {
 
     this.timbreForm = this._formBuilder.group({
       // Datos encabezado
@@ -82,17 +84,24 @@ export class FormProgramarTimbrePageComponent implements OnInit {
       }
     
       
-    let CalendarObj = new CalendarModel(Obj.nombre,Obj.dia,Obj.hora,Obj.lunes,Obj.martes,Obj.miercoles,Obj.jueves,Obj.viernes,Obj.sabado,Obj.domingo,Obj.estado)
+    let CalendarObj = new CalendarModel(Obj.nombre,'2022-11-02','13:00:00',Obj.lunes,Obj.martes,Obj.miercoles,Obj.jueves,Obj.viernes,Obj.sabado,Obj.domingo,Obj.estado)
     console.log(CalendarObj)
-    this._CalendarService.AgregarNuevo(CalendarObj)
 
+    this._CalendarService.AgregarNuevo(CalendarObj)
+    
     this.timbreForm.reset()
     
     this._Router.navigate(['TimbreAutomatico?/Home/Listado/Activos'])
-
+    
       
+  }}
+
+  Prueba(){
+    
+    this._DataService.RegistrarCalendar()
+
   }
    
 
 }
-}
+

@@ -15,6 +15,9 @@ export class CalendarService{
     
     public AgregarNuevo(Obj:CalendarModel){
         this.Calendar.push(Obj);
+        console.log(Obj);
+        
+       // this._dataService.RegistrarCalendar(Obj)
     }
     
     
