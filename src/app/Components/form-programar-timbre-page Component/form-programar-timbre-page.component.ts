@@ -98,7 +98,10 @@ export class FormProgramarTimbrePageComponent implements OnInit {
 
   Prueba(){
     
-    this._DataService.RegistrarCalendar()
+    this._DataService.addCalendar().subscribe(e=>{
+      console.log(e);
+    })
+   // this._DataService.RegistrarCalendar()
 
   }
    

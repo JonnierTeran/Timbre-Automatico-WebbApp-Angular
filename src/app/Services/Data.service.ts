@@ -2,6 +2,7 @@ import { UserModel } from "../Models/user.models";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import {Injectable} from '@angular/core'
 import { CalendarModel } from "../Models/Calendar.models";
+import { Observable } from "rxjs";
 
 @Injectable()
 export class DataService{
@@ -10,6 +11,7 @@ export class DataService{
 
     //Arreglo para horarios
     Calendar:CalendarModel[]
+    url="https://nancy-server.onrender.com/api/addcalendar";
 
     
       private HEADERS: HttpHeaders;
@@ -21,6 +23,9 @@ export class DataService{
         this.Calendar= [];
         this.HEADERS = new HttpHeaders({
             'Content-Type': 'application/x-www-form-urlencoded',
+            'Access-Control-Allow-Origin':'*',
+            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS'
           });
      }
     
@@ -80,6 +85,27 @@ export class DataService{
       )
 
     }
+
+
+
+
+    addCalendar(Obj?:CalendarModel): Observable<any> {
+      let Prueba = {
+        nombre:'Hora12',
+         dia:'2022-11-02',
+         hora:'12:00:00',
+         lunes:'S',
+         martes:'S',
+         miercoles:'S',
+         jueves:'S',
+         viernes:'S',
+         sabado:'S',
+         domingo:'S',
+         estado:'S'
+      }
+  
+      return this._HttpClient.post<any>(this.url, Prueba,{ headers: this.HEADERS });
+ }
     
 
 }
