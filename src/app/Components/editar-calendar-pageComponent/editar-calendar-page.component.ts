@@ -23,7 +23,7 @@ export class EditarCalendarPageComponent implements OnInit, AfterViewInit {
                private _DataService:DataService, private _Router:Router) {
     
     
-    this.ObjCalendar = [] // new CalendarModel('','','','','','','','','','','');
+    this.ObjCalendar = [] 
     this.id = '';
 
     this.ActualizarForm = this._formBuilder.group({

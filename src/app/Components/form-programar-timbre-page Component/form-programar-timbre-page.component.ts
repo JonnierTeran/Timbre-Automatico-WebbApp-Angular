@@ -1,11 +1,11 @@
 //Modulos del componente
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+//Servicios
 import { Router } from '@angular/router';
-import { CalendarModel } from 'src/app/Models/Calendar.models';
 import { CalendarService } from 'src/app/Services/Calendar.services';
-import { DataService } from 'src/app/Services/Data.service';
-
+//Modelos de datos
+import { CalendarModel } from 'src/app/Models/Calendar.models';
 //Decorador del componente
 @Component({
   selector: 'app-form-programar-timbre-page',
@@ -13,94 +13,100 @@ import { DataService } from 'src/app/Services/Data.service';
   styleUrls: ['./form-programar-timbre-page.component.css'],
 })
 //Clase del componente para registrar horarios
-export class FormProgramarTimbrePageComponent implements OnInit {
+export class FormProgramarTimbrePageComponent {
+  //Formulario reactivo
+  timbreForm: FormGroup;
 
-    timbreForm:FormGroup;
-
-  constructor(private _CalendarService: CalendarService,  private _formBuilder: FormBuilder, private _Router: Router, private _DataService: DataService) {
-
+  constructor(
+    private _CalendarService: CalendarService,
+    private _formBuilder: FormBuilder,
+    private _Router: Router
+  ) {
+    //Instancia del formulario
     this.timbreForm = this._formBuilder.group({
       // Datos encabezado
       nombre: ['', Validators.required],
-      dia: ['', ],
-      hora: ['',Validators.required],
+      dia: [''],
+      hora: ['', Validators.required],
       lunes: [''],
       martes: [''],
-      miercoles: [''], 
+      miercoles: [''],
       jueves: [''],
       viernes: [''],
       sabado: [''],
       domingo: [''],
-      estado: ['S', Validators.required]
-  })}
-  
-  ngOnInit(): void {}
+      estado: ['S', Validators.required],
+    });
+  }
 
+  //Metodo para registrar un nuevo calendario
+  public ejecutar() {
+    //Guardamos el formulario y su valor en un objeto
+    let Obj = this.timbreForm.value;
 
-
-  ejecutar(){
-    let Obj = this.timbreForm.value;    
-    
-    if(Obj.lunes === true){
-      Obj.lunes = 'S'
-    }else{
-      Obj.lunes = 'N'
+    //Validamos el objeto y sus checkbox
+    if (Obj.lunes === true) {
+      Obj.lunes = 'S';
+    } else {
+      Obj.lunes = 'N';
     }
 
-    if(Obj.martes === true){
-      Obj.martes = 'S'
-    }else{
-      Obj.martes = 'N'
+    if (Obj.martes === true) {
+      Obj.martes = 'S';
+    } else {
+      Obj.martes = 'N';
     }
 
-      if(Obj.miercoles === true){
-        Obj.miercoles = 'S'
-      }else{
-        Obj.miercoles = 'N'
-      }
+    if (Obj.miercoles === true) {
+      Obj.miercoles = 'S';
+    } else {
+      Obj.miercoles = 'N';
+    }
 
-      if(Obj.jueves === true){
-        Obj.jueves = 'S'
-      }else{
-        Obj.jueves = 'N'
-      }
+    if (Obj.jueves === true) {
+      Obj.jueves = 'S';
+    } else {
+      Obj.jueves = 'N';
+    }
 
-      if(Obj.viernes === true){
-        Obj.viernes = 'S'
-      }else{
-        Obj.viernes = 'N'
-      }
+    if (Obj.viernes === true) {
+      Obj.viernes = 'S';
+    } else {
+      Obj.viernes = 'N';
+    }
 
-      if(Obj.sabado === true){
-        Obj.sabado = 'S'
-      }else{
-        Obj.sabado = 'N'
-      }
+    if (Obj.sabado === true) {
+      Obj.sabado = 'S';
+    } else {
+      Obj.sabado = 'N';
+    }
 
-      if(Obj.domingo === true){
-        Obj.domingo = 'S'
-      }else{
-        Obj.domingo = 'N'
-      }
-    
-      
-    let CalendarObj = new CalendarModel(Obj.nombre,'2022-11-02','13:00:00',Obj.lunes,Obj.martes,Obj.miercoles,Obj.jueves,Obj.viernes,Obj.sabado,Obj.domingo,Obj.estado)
-    console.log(CalendarObj)
+    if (Obj.domingo === true) {
+      Obj.domingo = 'S';
+    } else {
+      Obj.domingo = 'N';
+    }
 
-    this._CalendarService.AgregarNuevo(CalendarObj)
-    
-    this.timbreForm.reset()
-    
+    //Construimos un nuevo objeto para enviar al servicio
+    let CalendarObj = new CalendarModel(
+      Obj.nombre,
+      Obj.dia,
+      Obj.hora,
+      Obj.lunes,
+      Obj.martes,
+      Obj.miercoles,
+      Obj.jueves,
+      Obj.viernes,
+      Obj.sabado,
+      Obj.domingo,
+      Obj.estado
+    );
 
-    
-
-    this._Router.navigate(['TimbreAutomatico?/Home/Listado/Activos'])
-    
-      
+    //Se ejecuta el metodo del CalendarService y se envia el objeto por parametro
+    this._CalendarService.AgregarNuevo(CalendarObj);
+    //Se resetea el formulario y sus valores
+    this.timbreForm.reset();
+    //Redireccionamos de page
+    this._Router.navigate(['TimbreAutomatico?/Home/Listado/Activos']);
   }
 }
-
-
-
-
-

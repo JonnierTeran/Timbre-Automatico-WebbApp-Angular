@@ -1,7 +1,10 @@
 //Modelo Para programar el timbree
 export class CalendarModel{
     //Atributos 
+    //Atributo opcional
    public id?: number;
+
+   //Atributos Obligatorios
    public nombre:string;
    public dia:string;
    public hora:string;
