@@ -1,7 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 /**fondo del loggin*/
 #Content{
-    background: url(https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?cs=srgb&dl=pexels-pixabay-531880.jpg&fm=jpg);
+    background: url(assets/img/FondoLogin.jpg);
 }
 
 /*Centrar Recuadro para el loggin*/

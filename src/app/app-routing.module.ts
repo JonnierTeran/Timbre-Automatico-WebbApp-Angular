@@ -18,6 +18,7 @@ const routes: Routes = [
   {path:"TimbreAutomatico?/Home", component: HomePageComponent, children:[
     {path:"Listado/Activos", component: ListadoTimbresPageComponent},
     {path:"Formulario/Registro" , component:FormProgramarTimbrePageComponent},
+    {path:"Registros/UpdateReg" , component: EditarCalendarPageComponent},
     {path:"Registros/UpdateReg/:id" , component: EditarCalendarPageComponent}
   ]}, //Fin de rutas hijas
   {path:"**" , component:ErrorPageComponent}

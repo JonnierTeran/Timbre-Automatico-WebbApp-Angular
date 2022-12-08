@@ -4,7 +4,7 @@
         <section class="container">
             <form  #form="ngForm" (ngSubmit)="form.valid && Ingresar(form)" id="Loggin">
                 <div id="LogginContent">
-                    <img id="imgLog" src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" alt="Loggin" title="Loggin">
+                    <img id="imgLog" src="../../../assets/img/UserLogin.png" alt="Loggin" title="Loggin">
                     <div class="form-floating mb-3 mt-3">
                         <input type="email" class="form-control" id="n1" placeholder="Enter User" name="num" [(ngModel)]="UserInput" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" #email="ngModel" required >
                         <label for="num">Enter User</label>
