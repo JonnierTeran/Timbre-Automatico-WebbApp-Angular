@@ -1,5 +1,5 @@
 //Import del modulo
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 
 //Decorador del componente
 @Component({
@@ -8,11 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./error-page.component.css']
 })
 //Export de la clasee
-export class ErrorPageComponent implements OnInit {
+export class ErrorPageComponent {
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

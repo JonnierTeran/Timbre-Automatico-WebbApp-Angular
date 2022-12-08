@@ -44,6 +44,8 @@ export class FormProgramarTimbrePageComponent {
     //Guardamos el formulario y su valor en un objeto
     let Obj = this.timbreForm.value;
 
+    
+
     //Validamos el objeto y sus checkbox
     if (Obj.lunes === true) {
       Obj.lunes = 'S';
