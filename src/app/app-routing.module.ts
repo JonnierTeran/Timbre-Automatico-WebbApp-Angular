@@ -19,7 +19,7 @@ const routes: Routes = [
     {path:"Listado/Activos", component: ListadoTimbresPageComponent},
     {path:"Formulario/Registro" , component:FormProgramarTimbrePageComponent},
     {path:"Registros/UpdateReg" , component: EditarCalendarPageComponent},
-    {path:"Registros/UpdateReg/:id" , component: EditarCalendarPageComponent}
+    {path:"Registros/UpdateReg/:id/:pos" , component: EditarCalendarPageComponent}
   ]}, //Fin de rutas hijas
   {path:"**" , component:ErrorPageComponent}
 ];

@@ -66,4 +66,15 @@ export class CalendarService {
       'success'
     );
   }
+
+  //**************************************************************************************************************** */
+  //Metodo para actualizar un elemento del arreglo
+  public Update(Obj:CalendarModel, id:string , pos:string){
+    
+    this.Calendar[+pos] = Obj;
+
+    this._dataService.UpdateReg(Obj, id)
+
+
+  }
 }

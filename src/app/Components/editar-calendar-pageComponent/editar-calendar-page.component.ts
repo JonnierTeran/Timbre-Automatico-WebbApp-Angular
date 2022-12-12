@@ -7,6 +7,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from 'src/app/Services/Data.service';
 //Modelos de datos
 import { CalendarModel } from 'src/app/Models/Calendar.models';
+import { CalendarService } from 'src/app/Services/Calendar.services';
 
 @Component({
   selector: 'app-editar-calendar-page',
@@ -18,32 +19,37 @@ export class EditarCalendarPageComponent implements OnInit, AfterViewInit {
   ActualizarForm: FormGroup;
   //Identificador unico en la bd traido por la url
   id: string;
+  //Posicion en el arreglo traido por url
+  pos:string
   //Objeto obtenido de la bd para editar
   ObjCalendar: CalendarModel[];
-
+  
+  currentDate?:any
   constructor(
     private _formBuilder: FormBuilder,
     private _Route: ActivatedRoute,
     private _DataService: DataService,
-    private _Router: Router
+    private _Router: Router,
+    private _CalendarService: CalendarService
   ) 
   {
     //inicializacion de atributos
     this.ObjCalendar = [];
     this.id = '';
+    this.pos= ''
 
     this.ActualizarForm = this._formBuilder.group({
       // Datos encabezado
       nombre: ['', Validators.required],
       dia: [''],
       hora: ['', Validators.required],
-      lunes: [''],
-      martes: [''],
-      miercoles: [''],
-      jueves: [''],
-      viernes: [''],
-      sabado: [''],
-      domingo: [''],
+    //  lunes: [''],
+    //  martes: [''],
+    //  miercoles: [''],
+     // jueves: [''],
+    //  viernes: [''],
+     // sabado: [''],
+    //  domingo: [''],
       estado: ['S', Validators.required],
     });
   }
@@ -52,6 +58,8 @@ export class EditarCalendarPageComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     //Tomamos el parametro enviado por la URL desde el componente listar
     this.id = '' + this._Route.snapshot.paramMap.get('id');
+    this.pos = '' + this._Route.snapshot.paramMap.get('pos');
+
     this.consultarHorario();
   }
   
@@ -63,31 +71,20 @@ export class EditarCalendarPageComponent implements OnInit, AfterViewInit {
     });
   }
   
+  
+  //Formatear el formulario
+  public AsignarFormulario() {
+    this.ActualizarForm.controls['nombre'].setValue(this.ObjCalendar[0].nombre);
+    this.ActualizarForm.controls['dia'].setValue(this.ObjCalendar[0].dia);
+    this.ActualizarForm.controls['hora'].setValue(this.ObjCalendar[0].hora);
+   
+  }
   //Segundo ciclo de vida
   ngAfterViewInit(): void {
+    //Ejecutamos el metodo anterior luego de cierto tiempo recorrido
     setTimeout(() => {
       this.AsignarFormulario();
-    }, 2000);
-  }
-  
-  AsignarFormulario() {
-    console.log(this.ObjCalendar);
-    console.log(this.ObjCalendar[0].nombre);
-
-    this.ActualizarForm.controls['nombre'].setValue(this.ObjCalendar[0].nombre);
-    this.ActualizarForm.controls['lunes'].setValue(this.ObjCalendar[0].lunes);
-    this.ActualizarForm.controls['martes'].setValue(this.ObjCalendar[0].martes);
-    this.ActualizarForm.controls['miercoles'].setValue(
-    this.ObjCalendar[0].miercoles
-    );
-    this.ActualizarForm.controls['jueves'].setValue(this.ObjCalendar[0].jueves);
-    this.ActualizarForm.controls['viernes'].setValue(
-      this.ObjCalendar[0].viernes
-    );
-    this.ActualizarForm.controls['sabado'].setValue(this.ObjCalendar[0].sabado);
-    this.ActualizarForm.controls['domingo'].setValue(
-      this.ObjCalendar[0].domingo
-    );
+    }, 1000);
   }
   
   //Metodo para cancelar una actualizacion
@@ -96,5 +93,11 @@ export class EditarCalendarPageComponent implements OnInit, AfterViewInit {
   }
   
   //Metodo para actualizar un registro
-  public ejecutar() {}
+  public ejecutar() {
+    let Obj = this.ActualizarForm.value
+
+    this._CalendarService.Update(Obj,this.id, this.pos)
+    this._Router.navigate(['TimbreAutomatico?/Home/Listado/Activos']);
+
+  }
 }

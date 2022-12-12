@@ -28,13 +28,13 @@ export class FormProgramarTimbrePageComponent {
       nombre: ['', Validators.required],
       dia: [''],
       hora: ['', Validators.required],
-      lunes: [''],
-      martes: [''],
-      miercoles: [''],
-      jueves: [''],
-      viernes: [''],
-      sabado: [''],
-      domingo: [''],
+      // lunes: [''],
+      // martes: [''],
+      //miercoles: [''],
+      // jueves: [''],
+      // viernes: [''],
+      // sabado: [''],
+      // domingo: [''],
       estado: ['S', Validators.required],
     });
   }
@@ -44,11 +44,11 @@ export class FormProgramarTimbrePageComponent {
     //Guardamos el formulario y su valor en un objeto
     let Obj = this.timbreForm.value;
 
-    
-
     //Validamos el objeto y sus checkbox
+    /**
+     * 
     if (Obj.lunes === true) {
-      Obj.lunes = 'S';
+    Obj.lunes = 'S';
     } else {
       Obj.lunes = 'N';
     }
@@ -88,19 +88,21 @@ export class FormProgramarTimbrePageComponent {
     } else {
       Obj.domingo = 'N';
     }
+     * 
+     */
 
     //Construimos un nuevo objeto para enviar al servicio
     let CalendarObj = new CalendarModel(
       Obj.nombre,
       Obj.dia,
       Obj.hora,
-      Obj.lunes,
-      Obj.martes,
-      Obj.miercoles,
-      Obj.jueves,
-      Obj.viernes,
-      Obj.sabado,
-      Obj.domingo,
+      // Obj.lunes,
+      // Obj.martes,
+      // Obj.miercoles,
+      // Obj.jueves,
+      // Obj.viernes,
+      // Obj.sabado,
+      // Obj.domingo,
       Obj.estado
     );
 

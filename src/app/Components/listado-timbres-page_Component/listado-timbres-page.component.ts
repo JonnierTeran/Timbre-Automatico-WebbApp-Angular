@@ -30,7 +30,7 @@ export class ListadoTimbresPageComponent {
 
   //Metodo para confirmar edicion y redireccionar al form de Edicion. recibe por parametro el id
   //Del registro a editar
-  public Editar(id: number) {
+  public Editar(id: number, pos :number) {
     Swal.fire({
       title: 'Actualizar Registro',
       text: 'Desea Actualizar este Registro?',
@@ -42,11 +42,42 @@ export class ListadoTimbresPageComponent {
       cancelButtonText: 'Cancelar',
     }).then((result) => {
       if (result.isConfirmed) {
-        //Redireccion luego de la confirmacion
-        this._Router.navigate([
-          'TimbreAutomatico?/Home/Registros/UpdateReg/',
-          id,
-        ]);
+        //Si acepta se pide la contraseña
+        Swal.fire({
+          title: "Para confirmar por favor, Digita tu contraseña",
+          input: "password",
+          showCancelButton: true,
+          confirmButtonText: "Guardar",
+          cancelButtonText: "Cancelar",
+        })
+        .then(resultado => {
+          if (resultado.value) {
+            let Pass = resultado.value;
+            //Validamos la contraseña
+            if (Pass === sessionStorage.getItem("Password")){
+              Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Contraseña correcta',
+                showConfirmButton: false,
+                timer: 1000,
+              });
+              //Redireccion luego de la confirmacion del pass
+              this._Router.navigate([
+                'TimbreAutomatico?/Home/Registros/UpdateReg/',
+                id, pos ,
+              ]);
+            }else{
+              Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'Contraseña Incorrecta, intente nuevamente!',
+                showConfirmButton: false,
+                timer: 1000,
+              });
+            }
+          }
+    });
       }
     });
   }

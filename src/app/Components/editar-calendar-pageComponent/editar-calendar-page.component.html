@@ -1,87 +1,118 @@
 <div id="ContentForm">
+  <div class="container-fluid">
+    <br />
+    <h2 id="Prog" class="container">FORMULARIO DE ACTUALIZACION DE ESTADO</h2>
+
     <div class="container-fluid">
-        <br>
-        <h2 id="Prog" class="container"> FORMULARIO DE ACTUALIZACION DE ESTADO</h2>
+      <br /><br />
+      <hr />
+      <div class="contentForm">
+        <form
+          class="container-fluid"
+          [formGroup]="ActualizarForm"
+          (ngSubmit)="ejecutar()"
+        >
+          <div class="form-floating mt-3 mb-3">
+            <input
+              type="text"
+              class="form-control"
+              id="n2"
+              placeholder="Enter password"
+              name="name"
+              formControlName="nombre"
+            />
+            <label for="n1">Ingrese Nombre/Ref</label>
+          </div>
 
-       
+          <div class="form-floating mt-3 mb-3">
+            <input
+              type="datetime"
+              class="form-control"
+              id="n2"
+              name="date"
+              formControlName="dia"
+            />
+            <label for="n2">Ingrese Fecha</label>
+          </div>
 
-        <div class="container-fluid">
-            <br><br>
-            <div class="contentForm">
-        <form class="container-fluid" [formGroup]="ActualizarForm" (ngSubmit)="ejecutar()">
-              <div class="form-floating mt-3 mb-3">
-                <input type="text" class="form-control" id="n2" placeholder="Enter password" name="name" formControlName="nombre" >
-                <label for="n1">Ingrese Nombre/Ref</label>
-              </div>
-    
-              <div class="form-floating mt-3 mb-3">
-                <input type="date" class="form-control" id="n2" placeholder="Enter password" name="date" formControlName="dia">
-                <label for="n2">Ingrese Fecha</label>
-              </div>
-    
-              <div class="form-floating mt-3 mb-3">
-                <input type="time" class="form-control" step="2" id="n2" placeholder="Enter password" name="time" formControlName="hora">
-                <label for="n3">ingrese Hora</label>
-              </div>
+          <div class="form-floating mt-3 mb-3">
+            <input
+              type="time"
+              class="form-control"
+              step="2"
+              id="n2"
+              placeholder="Enter password"
+              name="time"
+              formControlName="hora"
+            />
+            <label for="n3">ingrese Hora</label>
+          </div>
 
-              
-              <h4>Elija los dias de la semana en que se repetira:</h4>
-              
-              <div id="Dias">
-                <div class="container-fluid"  class="DiaSemana">
-                  <label>Lunes</label> &nbsp;
-                  <input formControlName="lunes" type="checkbox">
-                </div>
-          
+          <!--
 
-                <div class="container-fluid" class="DiaSemana">
-                  <label>Martes</label> &nbsp;
-                  <input formControlName="martes" type="checkbox">
-                </div>
-           
-
-                <div class="container-fluid" class="DiaSemana">
-                  <label>Miercoles</label> &nbsp;
-                  <input formControlName="miercoles" type="checkbox">
-                </div>
-    
-
-                <div class="container-fluid" class="DiaSemana">
-                  <label>Jueves</label> &nbsp;
-                  <input formControlName="jueves" type="checkbox">
-                </div>
-
-                <div class="container-fluid" class="DiaSemana">
-                  <label>Viernes</label> &nbsp;
-                  <input formControlName="viernes" type="checkbox">
-                </div>
-          
-
-                <div class="container-fluid" class="DiaSemana">
-                  <label>Sabado</label> &nbsp;
-                  <input formControlName="sabado" type="checkbox">
-                </div>
-          
-
-                <div class="container-fluid" class="DiaSemana">
-                  <label>Domingo</label> &nbsp;
-                  <input formControlName="domingo" type="checkbox">
-                </div>
-           
-
-              </div>
-              <br>
-              
-              <button class="btn btn-outline-info" (click)="cancelar()"> C A N C E L A R</button>
-              &nbsp;&nbsp;&nbsp;
-              <button type="submit"  class="btn btn-outline-primary"  [disabled]="!ActualizarForm.valid">A C T U A L I Z A R  &nbsp; D A T O S</button>
-             
-            </form>
+                <h4>Elija los dias de la semana en que se repetira:</h4>
+                
+                <div id="Dias">
+                  <div class="container-fluid"  class="DiaSemana">
+                    <label>Lunes</label> &nbsp;
+                    <input formControlName="lunes" type="checkbox">
+                  </div>
             
-          
-        <br><br>
-                <hr>
-            </div>
-        </div>
+  
+                  <div class="container-fluid" class="DiaSemana">
+                    <label>Martes</label> &nbsp;
+                    <input formControlName="martes" type="checkbox">
+                  </div>
+             
+  
+                  <div class="container-fluid" class="DiaSemana">
+                    <label>Miercoles</label> &nbsp;
+                    <input formControlName="miercoles" type="checkbox">
+                  </div>
+      
+  
+                  <div class="container-fluid" class="DiaSemana">
+                    <label>Jueves</label> &nbsp;
+                    <input formControlName="jueves" type="checkbox">
+                  </div>
+  
+                  <div class="container-fluid" class="DiaSemana">
+                    <label>Viernes</label> &nbsp;
+                    <input formControlName="viernes" type="checkbox">
+                  </div>
+            
+  
+                  <div class="container-fluid" class="DiaSemana">
+                    <label>Sabado</label> &nbsp;
+                    <input formControlName="sabado" type="checkbox">
+                  </div>
+            
+  
+                  <div class="container-fluid" class="DiaSemana">
+                    <label>Domingo</label> &nbsp;
+                    <input formControlName="domingo" type="checkbox">
+                  </div>
+             
+  
+                </div>
+              -->
+          <br />
+
+          <button class="btn btn-outline-info" (click)="cancelar()">
+            C A N C E L A R
+          </button>
+          &nbsp;&nbsp;&nbsp;
+          <button
+            type="submit"
+            class="btn btn-outline-primary"
+            [disabled]="!ActualizarForm.valid"
+          >
+            A C T U A L I Z A R &nbsp; D A T O S
+          </button>
+        </form>
+        <br />
+        <hr />
+      </div>
     </div>
+  </div>
 </div>

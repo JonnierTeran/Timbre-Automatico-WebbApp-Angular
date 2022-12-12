@@ -23,7 +23,7 @@ export class DataService {
   // url="http://localhost:3000/api";
   //Headers
   private HEADERS: HttpHeaders;
-  public Calendaredit: CalendarModel;
+ // public Calendaredit: CalendarModel;
 
   //**********************************************************************************************************************************************/
 
@@ -31,19 +31,19 @@ export class DataService {
   constructor(private _HttpClient: HttpClient) {
     this.user = [];
     this.Calendar = [];
-    this.Calendaredit = new CalendarModel(
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      '',
-      ''
-    );
+   // this.Calendaredit = new CalendarModel(
+     // '',
+     // '',
+     // '',
+     // '',
+    //  '',
+    //  '',
+    //  '',
+    //  '',
+    //  '',
+    //  '',
+    //  ''
+   // );
 
     this.HEADERS = new HttpHeaders({
       // 'Content-Type': 'application/x-www-form-urlencoded',
@@ -56,13 +56,15 @@ export class DataService {
   //Metodo para obtener los datos de los usuarios registrados desde una Api y agregarlos al arreglo
   public GetUser() {
     this._HttpClient
-      .get<UserModel[]>('https://nancy-server.onrender.com/api/users')
+      .get<UserModel[]>('http://localhost:3000/api/users') //https://nancy-server.onrender.com/api/users'
       .subscribe(
         (Response: UserModel[]) => {
         //Recorremos el arreglo obtenido y lo agregamos a nuestro arreglo
           Response.forEach((element) => {
             this.user.push(element);
           });
+          console.log('User' , Response);
+          
         },
         Error =>  console.log(Error));
   }
@@ -72,7 +74,7 @@ export class DataService {
   //metodo Gett para obtener los  Horarios programados desde la base de datos
   public GetHorarios() {
     this._HttpClient
-      .get<CalendarModel[]>('https://nancy-server.onrender.com/api/calendar')
+      .get<CalendarModel[]>('http://localhost:3000/api/calendar')//'https://nancy-server.onrender.com/api/calendar'
       .subscribe(
         (Response: CalendarModel[]) => {
         //Recorremos el arreglo obtenido y lo agregamos a nuestro arreglo
@@ -87,14 +89,14 @@ export class DataService {
 
   //Metodo para Programar un nuevo horario y registrarlo en la base de datos
   public addCalendar(Obj: CalendarModel): Observable<any> {
-    return this._HttpClient.post<any>(this.url + '/addcalendar', Obj);
+    return this._HttpClient.post<any>('http://localhost:3000/api/addcalendar', Obj);//'https://nancy-server.onrender.com/api/addcalendar'
   }
 
   //********************************************************************************************************************************************/
 
   //Metodo para Eliminar un horario en la base de datos
   public deleteCalendar(Id: number): Observable<any> {
-    return this._HttpClient.delete<any>(this.url + '/deletecalendar/' + Id);
+    return this._HttpClient.delete<any>('http://localhost:3000/api/deletecalendar/' + Id); //'https://nancy-server.onrender.com/api/deletecalendar/' id
   }
 
   //*********************************************************************************************************************************************/
@@ -102,7 +104,20 @@ export class DataService {
   //Metodo para consultar un registro en la base de datos
   public ConsularReg(id: string): Observable<any> {
     return this._HttpClient.get<CalendarModel>(
-      'https://nancy-server.onrender.com/api/calendar/' + id
-    );
+      'http://localhost:3000/api/calendar/' + id
+    ); //'https://nancy-server.onrender.com/api/calenar/' id
   }
+
+   //*********************************************************************************************************************************************/
+
+   //Metodo para actualizar un Registro
+   //Recibe la pos para actualizar el arreglo dinamico y el id para la bd
+   public UpdateReg(Obj:CalendarModel, id:string){
+     this._HttpClient.put('http://localhost:3000/api/update/', Obj + "/" + id,{})
+     .subscribe(
+      e => console.log(e)
+      ,
+      Err => console.log(Err)
+    );
+}
 }

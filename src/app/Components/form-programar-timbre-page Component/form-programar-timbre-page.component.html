@@ -4,7 +4,8 @@
     <br />
     <h2 id="Prog" class="container">PROGRAMACIÓN DEL TIMBRE ESCOLAR</h2>
 
-        <br><br>
+        <br><br> <br> 
+        <hr>
         <form class="container-fluid" [formGroup]="timbreForm" (ngSubmit)="ejecutar()">
               <div class="form-floating mt-3 mb-3">
                 <input type="text" class="form-control" id="n2" placeholder="Enter password" name="name" formControlName="nombre" >
@@ -21,52 +22,54 @@
                 <label for="n3">ingrese Hora</label>
               </div>
 
-              
-              <h4>Elija los dias de la semana en que se repetira:</h4>
-              
-              <div id="Dias">
-                <div class="container-fluid"  class="DiaSemana">
-                  <label>Lunes</label> &nbsp;
-                  <input formControlName="lunes" type="checkbox">
-                </div>
-          
+              <!--
 
-                <div class="container-fluid" class="DiaSemana">
-                  <label>Martes</label> &nbsp;
-                  <input formControlName="martes" type="checkbox">
+                <h4>Elija los dias de la semana en que se repetira:</h4>
+                
+                <div id="Dias">
+                  <div class="container-fluid"  class="DiaSemana">
+                    <label>Lunes</label> &nbsp;
+                    <input formControlName="lunes" type="checkbox">
+                  </div>
+            
+  
+                  <div class="container-fluid" class="DiaSemana">
+                    <label>Martes</label> &nbsp;
+                    <input formControlName="martes" type="checkbox">
+                  </div>
+             
+  
+                  <div class="container-fluid" class="DiaSemana">
+                    <label>Miercoles</label> &nbsp;
+                    <input formControlName="miercoles" type="checkbox">
+                  </div>
+      
+  
+                  <div class="container-fluid" class="DiaSemana">
+                    <label>Jueves</label> &nbsp;
+                    <input formControlName="jueves" type="checkbox">
+                  </div>
+  
+                  <div class="container-fluid" class="DiaSemana">
+                    <label>Viernes</label> &nbsp;
+                    <input formControlName="viernes" type="checkbox">
+                  </div>
+            
+  
+                  <div class="container-fluid" class="DiaSemana">
+                    <label>Sabado</label> &nbsp;
+                    <input formControlName="sabado" type="checkbox">
+                  </div>
+            
+  
+                  <div class="container-fluid" class="DiaSemana">
+                    <label>Domingo</label> &nbsp;
+                    <input formControlName="domingo" type="checkbox">
+                  </div>
+             
+  
                 </div>
-           
-
-                <div class="container-fluid" class="DiaSemana">
-                  <label>Miercoles</label> &nbsp;
-                  <input formControlName="miercoles" type="checkbox">
-                </div>
-    
-
-                <div class="container-fluid" class="DiaSemana">
-                  <label>Jueves</label> &nbsp;
-                  <input formControlName="jueves" type="checkbox">
-                </div>
-
-                <div class="container-fluid" class="DiaSemana">
-                  <label>Viernes</label> &nbsp;
-                  <input formControlName="viernes" type="checkbox">
-                </div>
-          
-
-                <div class="container-fluid" class="DiaSemana">
-                  <label>Sabado</label> &nbsp;
-                  <input formControlName="sabado" type="checkbox">
-                </div>
-          
-
-                <div class="container-fluid" class="DiaSemana">
-                  <label>Domingo</label> &nbsp;
-                  <input formControlName="domingo" type="checkbox">
-                </div>
-           
-
-              </div>
+              -->
               <br>
               
               <input type="reset" name="Eliminar campos" class="btn btn-outline-info">
@@ -74,7 +77,7 @@
               <button type="submit"  class="btn btn-outline-primary" [disabled]="!timbreForm.valid">ACTIVAR TIMBRE</button>
              
             </form>
-            
+            <hr>
           
         <br><br>
     </div>
