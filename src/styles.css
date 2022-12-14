@@ -182,3 +182,15 @@ li:active{
   background-color: rgb(100, 197, 241);
   cursor: pointer;
 }
+
+.But{
+    color: white;
+    padding: 8px;
+    background-color: blue;
+    border-radius: 8px;
+}
+.But:active{
+    color: rgb(2, 2, 2);
+    background-color: rgb(188, 188, 219);
+    transform: scale(1.02 );
+}
