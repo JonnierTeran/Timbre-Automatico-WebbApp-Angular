@@ -1,5 +1,5 @@
 //Modulo del componente
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 //Servicios
 import { Router } from '@angular/router';
 import { CalendarService } from 'src/app/Services/Calendar.services';
@@ -26,7 +26,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './listado-timbres-page.component.html',
   styleUrls: ['./listado-timbres-page.component.css'],
 })
-export class ListadoTimbresPageComponent {
+export class ListadoTimbresPageComponent  implements OnInit{
   //Arreglo de registros
   public Calendar: CalendarModel[];
 
@@ -38,7 +38,10 @@ export class ListadoTimbresPageComponent {
     //Inicializamos el arreglo con el arreglo del servicio
     this.Calendar = this._CalendarService.Calendar;
   }
+  ngOnInit(): void {
 
+    
+  }
   //Metodo para confirmar edicion y redireccionar al form de Edicion. recibe por parametro el id
   //Del registro a editar
   public Editar(id: number, pos :number) {
