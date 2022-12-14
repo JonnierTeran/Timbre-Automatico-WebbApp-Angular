@@ -108,6 +108,8 @@ export class FormProgramarTimbrePageComponent {
 
     //Se ejecuta el metodo del CalendarService y se envia el objeto por parametro
     this._CalendarService.AgregarNuevo(CalendarObj);
+    console.log(CalendarObj);
+    
     //Se resetea el formulario y sus valores
     this.timbreForm.reset();
     //Redireccionamos de page

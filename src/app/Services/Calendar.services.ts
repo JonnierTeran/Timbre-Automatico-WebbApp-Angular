@@ -73,7 +73,7 @@ export class CalendarService {
     
     this.Calendar[+pos] = Obj;
 
-    this._dataService.UpdateReg(Obj, id)
+    this._dataService.UpdateReg(Obj)
 
 
   }

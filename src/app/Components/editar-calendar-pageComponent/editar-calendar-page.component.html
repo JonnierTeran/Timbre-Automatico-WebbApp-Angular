@@ -23,16 +23,18 @@
             />
             <label for="n1">Ingrese Nombre/Ref</label>
           </div>
+          <h3>Fecha actual:  {{ObjCalendar[0].dia}}</h3>
 
+          <h5>Para Actualizar, por favor indique una nueva fecha:</h5>
           <div class="form-floating mt-3 mb-3">
             <input
-              type="datetime"
+              type="date"
               class="form-control"
               id="n2"
               name="date"
               formControlName="dia"
             />
-            <label for="n2">Ingrese Fecha</label>
+            <label for="n2">Ingrese Nueva Fecha</label>
           </div>
 
           <div class="form-floating mt-3 mb-3">

@@ -112,8 +112,8 @@ export class DataService {
 
    //Metodo para actualizar un Registro
    //Recibe la pos para actualizar el arreglo dinamico y el id para la bd
-   public UpdateReg(Obj:CalendarModel, id:string){
-     this._HttpClient.put('http://localhost:3000/api/update/', Obj + "/" + id,{})
+   public UpdateReg(Obj:CalendarModel){
+     this._HttpClient.put('http://localhost:3000/api/update', Obj)
      .subscribe(
       e => console.log(e)
       ,

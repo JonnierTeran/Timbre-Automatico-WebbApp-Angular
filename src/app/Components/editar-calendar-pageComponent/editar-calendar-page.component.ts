@@ -94,7 +94,19 @@ export class EditarCalendarPageComponent implements OnInit, AfterViewInit {
   
   //Metodo para actualizar un registro
   public ejecutar() {
-    let Obj = this.ActualizarForm.value
+    let Obj:CalendarModel = this.ActualizarForm.value
+    Obj.id = +this.id;
+    Obj.lunes= 'S'
+    Obj.martes= 'S'
+    Obj.miercoles= 'S'
+    Obj.jueves= 'S'
+    Obj.viernes= 'S'
+    Obj.sabado= 'S'
+    Obj.domingo= 'S'
+    Obj.estado = this.ObjCalendar[0].estado
+
+    console.log(Obj);
+    
 
     this._CalendarService.Update(Obj,this.id, this.pos)
     this._Router.navigate(['TimbreAutomatico?/Home/Listado/Activos']);
