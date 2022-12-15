@@ -5,6 +5,9 @@ import {HttpClientModule} from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+//MQTT
+import { IMqttServiceOptions, MqttModule } from 'ngx-mqtt';
+
 //Componentes de la aplicacion
 import { AppComponent } from './app.component';
 import { LogginPageComponent } from './Components/loggin-page_Component/loggin-page.component';
@@ -17,6 +20,26 @@ import { EditarCalendarPageComponent } from './Components/editar-calendar-pageCo
 //Servicios
 import { DataService } from './Services/Data.service';
 import { CalendarService } from './Services/Calendar.services';
+
+
+
+export const connection: IMqttServiceOptions = {
+  hostname: '192.168.100.231',
+  port: 1883,
+  //path: '/mqtt',
+  //clean: true, // 保留会话
+  //connectTimeout: 4000, // 超时时间
+  //reconnectPeriod: 4000, // 重连时间间隔
+  // 认证信息
+  clientId: 'mqttx_597046f4',
+  username: 'emqx_test',
+  password: 'emqx_test',
+  //protocol: 'ws',
+  connectOnCreate: false,
+}
+
+
+
 
 //Decorador del modulo
 @NgModule({
@@ -36,7 +59,8 @@ import { CalendarService } from './Services/Calendar.services';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MqttModule.forRoot(connection)
   ],
   //Servicios
   providers: [DataService, CalendarService],
