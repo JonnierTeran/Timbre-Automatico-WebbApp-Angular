@@ -19,6 +19,7 @@ import {
 } from 'ngx-mqtt';
 import { IClientSubscribeOptions } from 'mqtt-browser';
 import { Subscription } from 'rxjs';
+import * as moment from 'moment';
 
 
 @Component({
@@ -29,16 +30,56 @@ import { Subscription } from 'rxjs';
 export class ListadoTimbresPageComponent  implements OnInit{
   //Arreglo de registros
   public Calendar: CalendarModel[];
-
+  Reloj:string
+   hora!:string
   constructor(
     private _CalendarService: CalendarService,
     private _DataService: DataService,
     private _Router: Router
   ) {
+
+    this.Reloj = ''
     //Inicializamos el arreglo con el arreglo del servicio
     this.Calendar = this._CalendarService.Calendar;
   }
   ngOnInit(): void {
+     //Metodo que se ejecuta cada 1000ms
+     setInterval(()=>{ //Arrow functions que formatea y ejecuta la hora local en la variable reloj
+      this.Calendar.forEach((Element)=>{
+        moment.locale("es")
+        //Fecha AMD
+        let a = moment().format().split("T");
+        this.Reloj = a[0]
+        //Hora HH:MM
+        let Hora = moment().format('HH:MM');
+        let fecha = Element.dia.split('T')
+        let Hr = a[1].split('-')
+        let HoraAsignada = Hr[0].split(':');
+        //Hora actual
+        this.hora = `${HoraAsignada[0]}:${HoraAsignada[1]}`;
+        
+
+        let HoraProgramada = Element.hora.split(":");
+        //Hora programada
+        let HoraProg = `${HoraProgramada[0]}:${HoraProgramada[1]}`
+
+        //console.log('Fecha asignada ' + fecha[0]);
+        //console.log('fecha actual ' + this.Reloj);
+        //console.log('Hora asignada ' +  HoraProg);
+        //console.log('Hora actual ' +  this.hora);
+
+          if(fecha[0] == this.Reloj && this.hora == HoraProg){
+            this.doPublish()
+            console.log('Ejecutado');
+            
+            setTimeout(() => {
+              this.doOff()
+            }, 8000);
+
+          }
+      })
+    },30000);
+
 
     
   }
@@ -198,11 +239,13 @@ export class ListadoTimbresPageComponent  implements OnInit{
     const { topic, qos, payload } = this.publish
     console.log(this.publish)
     this.client?.unsafePublish(topic, payload, { qos } as IPublishOptions)
+    console.log('Alarma activada')
   }
 
   doOff() {
     const { topic, qos, payload } = this.off
     console.log(this.publish)
     this.client?.unsafePublish(topic, payload, { qos } as IPublishOptions)
+    console.log('alarma desactivada')
   }
 }
